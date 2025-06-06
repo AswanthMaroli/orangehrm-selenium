@@ -1,0 +1,33 @@
+
+<log4j:configuration debug="true" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- Console Appender -->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%t] %-5p %c %x - %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- File Appender -->
+    <appender name="file" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="logs/application.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="5"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%t] %-5p %c %x - %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- Root Logger -->
+    <root>
+        <priority value="info"/>
+        <appender-ref ref="console"/>
+        <appender-ref ref="file"/>
+    </root>
+
+    <!-- Logger for a specific package -->
+    <logger name="com.example">
+        <level value="debug"/>
+    </logger>
+
+</log4j:configuration>
