@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import com.hrmproject.base.BaseClass;
 import com.hrmproject.pageobjects.LoginPage;
+import com.hrmproject.utilities.ExtentManager;
 import com.hrmproject.utilities.Log;
 
 
@@ -27,6 +28,7 @@ public class LoginTest extends BaseClass { // Extend BaseClass
 //        String browser = getProperties().getProperty("browser").trim(); // Trim extra spaces
         System.out.println("Browser from parameter: " + browser+" "); 
         driver =initializeBrowserAndOpenApplication(browser);
+       
 
     }
     
@@ -38,6 +40,7 @@ public class LoginTest extends BaseClass { // Extend BaseClass
         String password = getProperties().getProperty("password");
         loginPage.performLogin(userName, password);
         Log.endTestCase("successfulLoginTest");
+       
     }
     
     @Test(groups="smoke")

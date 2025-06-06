@@ -1,16 +1,19 @@
 <suite name="CrossBrowserSuite" parallel="tests">
+    <listeners>
+    <listener class-name="com.hrmproject.utilities.ListenerClass"></listener>
+    </listeners>
     <test name="ChromeTest" thread-count = "2">
     <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="tests.LoginTest"/>
+            <class name="com.hrmproject.tests.LoginTest"/>
         </classes>
     </test>
     
     <test name="EdgeTest" thread-count ="2">
     <parameter name="browser" value="edge"></parameter>
         <classes>
-            <class name="tests.LoginTest"/>
+            <class name="com.hrmproject.tests.LoginTest"/>
         </classes>
-    </test>a
+    </test>
 
 </suite>

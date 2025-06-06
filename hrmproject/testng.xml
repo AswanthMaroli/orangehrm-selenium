@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="MySuite">
+    <listeners>
+    <listener class-name="com.hrmproject.utilities.ListenerClass"></listener>
+    </listeners>
     <test name="login">
     <parameter name="browser" value="chrome"></parameter>
     <groups>
@@ -8,7 +11,7 @@
 	    </run>
     </groups>
         <classes>
-            <class name="tests.LoginTest"/>
+            <class name="com.hrmproject.tests.LoginTest"/>
         </classes>
     </test>
 </suite>

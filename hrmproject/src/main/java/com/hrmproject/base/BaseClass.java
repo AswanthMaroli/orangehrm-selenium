@@ -11,7 +11,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
 import org.w3c.dom.DOMConfiguration;
+
+import com.hrmproject.utilities.ExtentManager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -31,6 +36,7 @@ public class BaseClass {
 	public void loadConfig() {
 		try {
 			DOMConfigurator.configure("log4j.xml");
+//			ExtentManager.setExtent();
 			prop = new Properties();
 			File propFile = new File(System.getProperty("user.dir") + "/configuration/config.properties");
 
@@ -97,4 +103,11 @@ public class BaseClass {
 
 		return driver;	
 	}
+	
+//	@AfterSuite
+//	public  void closeConfig() {
+//		
+//		ExtentManager.endReport();
+//	
+//	}
 }
