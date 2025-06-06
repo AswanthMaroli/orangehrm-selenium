@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.hrmproject.utilities.UIElementExtension;
+import com.hrmproject.utilities.ActionClass;
 
 public class LoginPage extends BasePage{
 	
@@ -29,9 +29,9 @@ public class LoginPage extends BasePage{
 	
 	public AdminDashboard performLogin(String username,String password) {
 		
-        UIElementExtension.performEnterText(driver,txtUserName, username);
-        UIElementExtension.performEnterText(driver,txtPassword, password);
-        UIElementExtension.performClick(driver,btnLogin);
+        ActionClass.performEnterText(driver,txtUserName, username);
+        ActionClass.performEnterText(driver,txtPassword, password);
+        ActionClass.performClick(driver,btnLogin);
 		return new AdminDashboard(driver);
         
 

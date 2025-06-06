@@ -1,9 +1,13 @@
 package com.hrmproject.utilities;
 
+import java.io.File;
 import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.v132.network.model.WebTransportConnectionEstablished;
@@ -11,13 +15,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.fasterxml.jackson.databind.deser.impl.JavaUtilCollectionsDeserializers;
+
 /*
  *  author : Aswanth Maroli
  *  date   : 01/03/2025
  * 
  */
 
-public class UIElementExtension {
+public class ActionClass {
 	
 	
 	 public static void waitForElementToBeVisible(WebDriver driver, WebElement element, int timeoutInSeconds) {
@@ -140,6 +146,23 @@ public class UIElementExtension {
 	   }
    }
   
+  public static void takeScreenShot(WebDriver driver,String filename,String path) {
+	  
+	  TakesScreenshot takeScreenShot = (TakesScreenshot)driver;
+	  
+	  File source = takeScreenShot.getScreenshotAs(OutputType.FILE);
+	 
+	  try {
+		  
+		  FileUtils.copyFile(source, new File(path + filename + ".png"));
+	  }catch(Exception e){
+		  
+		  e.printStackTrace();
+		  
+	  }
+	  
+	  
+  }
   
    
    
