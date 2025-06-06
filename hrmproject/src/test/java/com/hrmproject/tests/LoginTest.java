@@ -25,7 +25,7 @@ public class LoginTest extends BaseClass { // Extend BaseClass
     public void setUp(String browser) {
         loadConfig(); // Load configuration file
 //        String browser = getProperties().getProperty("browser").trim(); // Trim extra spaces
-        System.out.println("Browser from parameter: " + browser + " "); 
+        System.out.println("Browser from parameter: " + browser+" "); 
         driver =initializeBrowserAndOpenApplication(browser);
 
     }
